@@ -1,0 +1,15 @@
+generated: '2026-09-26'
+method: searched
+source: https://hagglebee.com/privacy/ ; https://hagglebee.com/policy/ ; https://hagglebee.com/openapi.yml (terms
+  and privacy are marked "Draft — pending legal review")
+signals:
+  data_subject_request:
+    url: https://hagglebee.com/privacy/
+    channel: email info@apievangelist.com
+    evidence: You can ask us for a copy of your data, to correct it, or to delete it by emailing info@apievangelist.com
+      .
+  notice_and_action:
+    url: https://hagglebee.com/policy/
+    api_operation: reportPost
+    evidence: POST /v1/reports — "Anyone can report, with or without a key. A person reviews every report." Rejections
+      and penalties can be appealed by email with the post id within 30 days (terms).

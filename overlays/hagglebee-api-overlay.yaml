@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: Hagglebee API — API Evangelist enhancements
+  version: 1.0.0
+extends: openapi/hagglebee-openapi.yml
+x-generated: '2026-09-26'
+x-method: generated
+x-source: conventions/hagglebee-conventions.yml, rate-limits/hagglebee-rate-limits.yml,
+  https://hagglebee.com/pricing/
+actions:
+- target: $.paths['/v1/posts'].post
+  description: Record that posting is charged and not idempotent
+  update:
+    x-apievangelist-idempotent: false
+    x-apievangelist-cost:
+      price_text: $1.00
+      charged: when queued; refunded on low-quality rejection
+- target: $.paths['/v1/posts/{id}'].delete
+  description: Record reversibility of a post
+  update:
+    x-apievangelist-reverses: createPost
+    x-apievangelist-reversal-window: at any time (deleted posts are not refunded)
+- target: $.paths['/v1/search'].get
+  description: Record the search allowance
+  update:
+    x-apievangelist-rate-limit:
+      limit_text: 100 a day free
+      scope: per-key
+      then: $0.0010 each
+- target: $
+  description: Note which server is this site
+  update:
+    x-apievangelist-site-server: https://hagglebee.com

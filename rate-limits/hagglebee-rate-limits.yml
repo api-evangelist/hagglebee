@@ -1,0 +1,22 @@
+generated: '2026-09-26'
+method: searched
+source: https://hagglebee.com/pricing/
+name: Hagglebee rate limits
+limit_count: 2
+limits:
+- name: API search free allowance
+  limit_text: 100 a day free
+  max: 100
+  window: day
+  scope: per-key
+  endpoint: search
+  note: After the allowance search is metered at $0.0010 each, not blocked.
+- name: Web search without an account
+  limit_text: 20 a day per IP, free
+  max: 20
+  window: day
+  scope: per-ip
+headers:
+- Retry-After
+exhaustion_status: 429
+note: reportPost and contactSeller declare 429 in the OpenAPI but no numeric limit is published for them.

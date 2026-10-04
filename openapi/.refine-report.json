@@ -1,0 +1,27 @@
+{
+  "provider": "hagglebee",
+  "sources": [
+    "_original/hagglebee-openapi.yml",
+    "hagglebee-openapi.yml"
+  ],
+  "outputs": [
+    "hagglebee-accounts-api-openapi.yml",
+    "hagglebee-discovery-api-openapi.yml",
+    "hagglebee-posts-api-openapi.yml",
+    "hagglebee-webhooks-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/hagglebee-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tag 'Accounts' spans 2 source specs (hagglebee-openapi.yml, hagglebee-openapi.yml): per-path servers applied",
+    "tag 'Discovery' spans 2 source specs (hagglebee-openapi.yml, hagglebee-openapi.yml): per-path servers applied",
+    "tag 'Posts' spans 2 source specs (hagglebee-openapi.yml, hagglebee-openapi.yml): per-path servers applied",
+    "tag 'Webhooks' spans 2 source specs (hagglebee-openapi.yml, hagglebee-openapi.yml): per-path servers applied",
+    "apis.yml register: written (+4 apis, 4 total)"
+  ],
+  "skipped": []
+}

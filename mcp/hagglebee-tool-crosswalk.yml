@@ -1,0 +1,81 @@
+generated: '2026-09-26'
+method: derived
+source: mcp/hagglebee-mcp-tools-list.json (probed tools/list) bound to openapi/hagglebee-openapi.yml operationIds
+  by name and semantics
+surfaces:
+  openapi: openapi/hagglebee-openapi.yml
+  mcp: https://hagglebee.com/mcp
+  graphql: null
+crosswalk:
+- tool: create_account
+  rest:
+  - createAccount
+  binding: one-to-one
+  confidence: high
+- tool: get_account
+  rest:
+  - getAccount
+  binding: one-to-one
+  confidence: high
+- tool: disable_auto_recharge
+  rest:
+  - updateAccount
+  binding: one-to-one
+  confidence: high
+- tool: request_account_deletion
+  rest:
+  - deleteAccount
+  binding: one-to-one
+  confidence: high
+- tool: post_classified
+  rest:
+  - createPost
+  binding: one-to-one
+  confidence: high
+- tool: get_post
+  rest:
+  - getPost
+  binding: one-to-one
+  confidence: high
+- tool: delete_post
+  rest:
+  - deletePost
+  binding: one-to-one
+  confidence: high
+- tool: browse_posts
+  rest:
+  - listPosts
+  binding: one-to-one
+  confidence: high
+- tool: search_posts
+  rest:
+  - search
+  binding: one-to-one
+  confidence: high
+- tool: report_post
+  rest:
+  - reportPost
+  binding: one-to-one
+  confidence: high
+- tool: contact_seller
+  rest:
+  - contactSeller
+  binding: one-to-one
+  confidence: high
+- tool: get_pricing
+  rest:
+  - getPricing
+  binding: one-to-one
+  confidence: high
+- tool: get_policy
+  rest:
+  - getPolicy
+  binding: one-to-one
+  confidence: high
+mcp_only: []
+rest_only: []
+coverage:
+  tools: 13
+  bound: 13
+  operations: 13
+  operations_with_tool: 13

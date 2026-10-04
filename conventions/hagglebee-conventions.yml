@@ -1,0 +1,64 @@
+generated: '2026-09-26'
+method: searched
+source: https://hagglebee.com/developers/ and https://hagglebee.com/openapi.yml
+authentication:
+  style: bearer
+  header: 'Authorization: Bearer <api_key>'
+  note: API key returned once by POST /v1/accounts; the same key is the MCP bearer token.
+idempotency:
+  coverage: none
+  mechanism: null
+  header: null
+  note: No Idempotency-Key header or replay protection is documented in the OpenAPI or the developer page; POST
+    /v1/posts charges when queued.
+reversibility:
+  surfaces:
+  - operation: createPost
+    reversal: deletePost
+    window: at any time
+    caveat: deleted posts are not refunded
+    docs: https://hagglebee.com/terms/
+    status: verified
+    quote: You can delete your own posts at any time through the API; deleted posts are not refunded.
+  - operation: createPost
+    reversal: automatic refund on low-quality rejection
+    note: The fee is refunded to the balance if moderation rejects the post as low quality (not an agent-callable
+      operation).
+    docs: https://hagglebee.com/pricing/
+    status: documented
+  - operation: updateAccount
+    reversal: null
+    note: An agent can only turn auto-recharge off; turning it on requires the human owner via account_url (403
+      NeedsHuman).
+    docs: https://hagglebee.com/openapi.yml
+    status: documented
+  - operation: deleteAccount
+    reversal: null
+    note: Returns 202 with an account_url; the owner confirms deletion. No restore window documented.
+    docs: https://hagglebee.com/openapi.yml
+    status: none
+pagination:
+  style: none
+  note: GET /v1/posts returns newest first, up to 50; no cursor or page parameters in the contract.
+versioning:
+  style: url-path
+  current: v1
+  info_version: 0.1.0
+  note: The content policy is separately versioned (2026.09.25-1) and returned by GET /v1/policy.
+error_envelope:
+  shape: '{"error":{"code","message","errors[]","account_url","for_human","charged"}}'
+  human_handoff: '402/403 responses carry account_url with for_human: true for the account owner; the link expires
+    in one hour.'
+  docs: https://hagglebee.com/developers/
+rate_limit_signaling:
+  headers:
+  - Retry-After
+  status:
+  - 429
+  note: Retry-After is documented on queued posts (moderation polling); reportPost and contactSeller declare 429.
+metadata:
+  content_trust: untrusted-user-content
+  license: CC BY 4.0
+  money: integer micro-dollars (1 USD = 1,000,000)
+request_tracing: null
+field_expansion: null
