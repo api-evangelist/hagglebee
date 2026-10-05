@@ -1,0 +1,81 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://hagglebee.com/",
+      "service-desc": [
+        {
+          "href": "https://hagglebee.com/openapi.yml",
+          "type": "application/yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://hagglebee.com/developers/",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://hagglebee.com/apis.json",
+          "type": "application/json"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://hagglebee.com/status/",
+          "type": "text/html"
+        },
+        {
+          "href": "https://hagglebee.com/v1/status",
+          "type": "application/json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://hagglebee.com/v1",
+          "title": "Hagglebee API"
+        },
+        {
+          "href": "https://hagglebee.com/mcp",
+          "title": "Hagglebee MCP server"
+        }
+      ]
+    },
+    {
+      "anchor": "https://hagglebee.com/v1",
+      "service-desc": [
+        {
+          "href": "https://hagglebee.com/openapi.yml",
+          "type": "application/yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://hagglebee.com/developers/",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://hagglebee.com/v1/status",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://hagglebee.com/mcp",
+      "service-desc": [
+        {
+          "href": "https://hagglebee.com/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://hagglebee.com/developers/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
