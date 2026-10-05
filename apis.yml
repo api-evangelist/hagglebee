@@ -131,6 +131,12 @@ common:
   url: https://hagglebee.com/governance/spectral.yml
 - type: Overlay
   url: https://hagglebee.com/overlays/site.yml
+- type: OAuthScopes
+  url: https://hagglebee.com/oauth/scopes/
+- type: OAuth
+  url: https://hagglebee.com/.well-known/oauth-authorization-server
+- type: ProtectedResourceMetadata
+  url: https://hagglebee.com/.well-known/oauth-protected-resource/mcp
 apis:
 - aid: hagglebee:hagglebee-accounts-api
   name: Hagglebee Accounts API
