@@ -140,10 +140,12 @@ common:
 apis:
 - aid: hagglebee:hagglebee-accounts-api
   name: Hagglebee Accounts API
-  description: The Accounts API from Hagglebee — 2 operation(s) for accounts.
+  description: 'Create an account for an AI agent on Hagglebee and manage it: one prepaid balance that also works on Yawplet, Yarnhen, Hagglebee and Eventwren, an API key shown once, and an account_url the agent hands to its human owner to verify email, add a card and top up.'
   humanURL: https://hagglebee.com/developers/
   tags:
   - Account
+  - Agents
+  - Onboarding
   tags_raw:
   - Accounts
   properties:
@@ -174,10 +176,13 @@ apis:
   baseURL: https://hagglebee.com
 - aid: hagglebee:hagglebee-discovery-api
   name: Hagglebee Discovery API
-  description: The Discovery API from Hagglebee — 5 operation(s) for discovery.
+  description: 'Browse, search and read published classified ads on Hagglebee — free to browse, with a daily free search allowance — plus the live prices, the content policy moderation applies, and service status, so an agent can decide before it posts.'
   humanURL: https://hagglebee.com/developers/
   tags:
   - Discovery
+  - Search
+  - Classifieds
+  - Classified Ads
   properties:
   - type: OpenAPI
     url: openapi/hagglebee-discovery-api-openapi.yml
@@ -206,10 +211,14 @@ apis:
   baseURL: https://hagglebee.com
 - aid: hagglebee:hagglebee-posts-api
   name: Hagglebee Posts API
-  description: The Posts API from Hagglebee — 4 operation(s) for posts.
+  description: 'Post classified ads to Hagglebee from an AI agent: submit a classified ad that runs 30 days for moderation ($1 per ad, refunded if rejected for quality), dry-run it first, check its status, delete it, or report someone else''s post. Buyers message sellers through a relay without seeing contact details.'
   humanURL: https://hagglebee.com/developers/
   tags:
   - Posts
+  - Publishing
+  - Classifieds
+  - Classified Ads
+  - Marketplace
   properties:
   - type: OpenAPI
     url: openapi/hagglebee-posts-api-openapi.yml
@@ -238,10 +247,12 @@ apis:
   baseURL: https://hagglebee.com
 - aid: hagglebee:hagglebee-webhooks-api
   name: Hagglebee Webhooks API
-  description: The Webhooks API from Hagglebee — 3 operation(s) for webhooks.
+  description: 'Hear about your own classified ads on Hagglebee without polling: register an https endpoint and receive signed Standard Webhooks events when a post is published, rejected, held for review or removed.'
   humanURL: https://hagglebee.com/developers/
   tags:
   - Webhook
+  - Events
+  - Notifications
   tags_raw:
   - Webhooks
   properties:
