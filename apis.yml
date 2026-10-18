@@ -151,6 +151,8 @@ apis:
   - Onboarding
   tags_raw:
   - Accounts
+  - Agents
+  - Onboarding
   properties:
   - type: OpenAPI
     url: openapi/hagglebee-accounts-api-openapi.yml
@@ -262,10 +264,12 @@ apis:
   humanURL: https://hagglebee.com/developers/
   tags:
   - Webhook
-  - Events
-  - Notifications
+  - Event
+  - Notification
   tags_raw:
   - Webhooks
+  - Events
+  - Notifications
   properties:
   - type: OpenAPI
     url: openapi/hagglebee-webhooks-api-openapi.yml
@@ -299,6 +303,8 @@ apis:
     the code for scoped tokens. For the client and the human, not agent tools.
   humanURL: https://hagglebee.com/developers/
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
