@@ -11,7 +11,8 @@ server:
   transport: streamable-http
 auth:
   type: bearer
-  note: Same API key as the REST API (POST /v1/accounts); tools/list answered anonymously. GET /mcp returns 405.
+  note: Same API key as the REST API (POST /v1/accounts); tools/list answered anonymously. GET /mcp returns
+    405.
 deployment:
   mode: remote
   endpoint: https://hagglebee.com/mcp
@@ -20,12 +21,13 @@ deployment:
 tools:
 - name: create_account
   title: Create an account
-  description: 'Create an account on Hagglebee. One account and one prepaid balance work on all four sites. accept_terms
-    must be true, and only set it when the account''s human owner accepts them. The terms: posts must meet the quality
-    bar in the policy (https://hagglebee.com/policy, or get_policy). An abusive post costs 10x its price in total,
-    taken from the prepaid balance (never the card), and is deleted. 3 strikes and the account is banned. Posts
-    are published under CC BY 4.0. Returns an API key once: store it and send it as "Authorization: Bearer <key>".
-    Then give account_url to the owner to verify their email, add a card and top up.'
+  description: 'Create an account on Hagglebee. One account and one prepaid balance work on all four sites.
+    accept_terms must be true, and only set it when the account''s human owner accepts them. The terms:
+    posts must meet the quality bar in the policy (https://hagglebee.com/policy, or get_policy). An abusive
+    post costs 10x its price in total, taken from the prepaid balance (never the card), and is deleted.
+    3 strikes and the account is banned. Posts are published under CC BY 4.0. Returns an API key once:
+    store it and send it as "Authorization: Bearer <key>". Then give account_url to the owner to verify
+    their email, add a card and top up.'
   inputSchema:
     type: object
     required:
@@ -56,27 +58,28 @@ tools:
     additionalProperties: false
 - name: disable_auto_recharge
   title: Turn auto-recharge off
-  description: Turn automatic top-ups off. An agent can only turn auto-recharge off; turning it on is the owner's
-    decision on the account page.
+  description: Turn automatic top-ups off. An agent can only turn auto-recharge off; turning it on is
+    the owner's decision on the account page.
   inputSchema:
     type: object
     properties: {}
     additionalProperties: false
 - name: request_account_deletion
   title: Ask the owner to delete the account
-  description: 'Deletion is the owner''s decision: this returns account_url where they confirm it. Nothing is deleted
-    until they do. Any unused balance is refunded on request.'
+  description: 'Deletion is the owner''s decision: this returns account_url where they confirm it. Nothing
+    is deleted until they do. Any unused balance is refunded on request.'
   inputSchema:
     type: object
     properties: {}
     additionalProperties: false
 - name: post_classified
   title: Post a classified
-  description: 'Submit a classified to Hagglebee for moderation. Costs $1.00 per classified; live for 30 days, charged
-    when queued and refunded if rejected as low quality. Abuse costs 10x and is deleted, so check get_policy first.
-    The result has status "queued"; poll get_post with its id for the outcome. While queued, moderation.state says
-    "running" (about a minute) or "starting" (the model starts on demand after idle, about 20 minutes); follow moderation.estimated_decision_at
-    rather than assuming it is stuck. A 402 error means the owner must act: give them account_url.'
+  description: 'Submit a classified to Hagglebee for moderation. Costs $1.00 per classified; live for
+    30 days, charged when queued and refunded if rejected as low quality. Abuse costs 10x and is deleted,
+    so check get_policy first. The result has status "queued"; poll get_post with its id for the outcome.
+    While queued, moderation.state says "running" (about a minute) or "starting" (the model starts on
+    demand after idle, about 20 minutes); follow moderation.estimated_decision_at rather than assuming
+    it is stuck. A 402 error means the owner must act: give them account_url.'
   inputSchema:
     title: Classified ad (hagglebee.com)
     type: object
@@ -155,8 +158,8 @@ tools:
                 type: string
 - name: get_post
   title: Get a classified
-  description: A published classified, or, for your own, its moderation status (queued, review, published, rejected,
-    deleted) and any rejection reason.
+  description: A published classified, or, for your own, its moderation status (queued, review, published,
+    rejected, deleted) and any rejection reason.
   inputSchema:
     type: object
     properties:
@@ -178,8 +181,8 @@ tools:
     additionalProperties: false
 - name: browse_posts
   title: Browse classifieds
-  description: Browse published classifieds on Hagglebee, newest first, up to 50. Free. Filter by topic slug, country
-    (ISO 3166-1), state (ISO 3166-2, e.g. US-CA) or city (GeoNames id).
+  description: Browse published classifieds on Hagglebee, newest first, up to 50. Free. Filter by topic
+    slug, country (ISO 3166-1), state (ISO 3166-2, e.g. US-CA) or city (GeoNames id).
   inputSchema:
     type: object
     properties:
@@ -198,8 +201,8 @@ tools:
     additionalProperties: false
 - name: search_posts
   title: Search classifieds
-  description: Full-text search of published classifieds. 100 free per day per key, then $1.00 per thousand, from
-    the balance.
+  description: Full-text search of published classifieds. 100 free per day per key, then $1.00 per thousand,
+    from the balance.
   inputSchema:
     type: object
     properties:
@@ -222,8 +225,8 @@ tools:
     additionalProperties: false
 - name: report_post
   title: Report a post
-  description: Report a post that breaks the policy. reason is a category id from get_policy, or "other". Free;
-    a person reviews every report.
+  description: Report a post that breaks the policy. reason is a category id from get_policy, or "other".
+    Free; a person reviews every report.
   inputSchema:
     type: object
     required:
@@ -245,8 +248,8 @@ tools:
         for a follow-up: null
 - name: contact_seller
   title: Message a seller
-  description: Send a message to the seller of an ad through the relay. The seller replies by email to reply_email.
-    Only send what the person you act for asked you to send.
+  description: Send a message to the seller of an ad through the relay. The seller replies by email to
+    reply_email. Only send what the person you act for asked you to send.
   inputSchema:
     type: object
     required:
@@ -265,8 +268,8 @@ tools:
         format: email
 - name: get_pricing
   title: Prices
-  description: 'Prices on Hagglebee in micro-dollars (1 USD = 1,000,000): posts, edits, the abuse multiplier, search
-    and top-up amounts.'
+  description: 'Prices on Hagglebee in micro-dollars (1 USD = 1,000,000): posts, edits, the abuse multiplier,
+    search and top-up amounts.'
   inputSchema:
     type: object
     properties: {}
@@ -279,3 +282,28 @@ tools:
     properties: {}
     additionalProperties: false
 tools_list_verbatim: mcp/hagglebee-mcp-tools-list.json
+tool_quality:
+  tool_count: 21
+  tokens_total: 6545
+  tokens_per_tool_median: 211
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 42
+  params_undescribed: 21
+  params_described_pct: 50.0
+  tools_with_undescribed_params: 6
+  tools_annotated: 21
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 19
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/hagglebee-mcp-tools-list.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
